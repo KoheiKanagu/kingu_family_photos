@@ -1,0 +1,60 @@
+{
+  "flutter": {
+    "platforms": {
+      "dart": {
+        "lib/constants/firebase_options.dart": {
+          "projectId": "kingu-family-photos",
+          "configurations": {
+            "web": "1:928792935785:web:0b2229bae2ad05a14111f8"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "database": "(default)",
+    "location": "asia-northeast1",
+    "rules": "firebase/firestore.rules",
+    "indexes": "firebase/firestore.indexes.json"
+  },
+  "functions": [
+    {
+      "source": "firebase/functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local",
+        "src",
+        "test",
+        ".gitignore",
+        "tsconfig.json",
+        "biome.json"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run lint",
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ]
+    }
+  ],
+  "hosting": {
+    "public": "firebase/hosting/",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "appcheck_debug_token.js"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "storage": {
+    "rules": "firebase/storage.rules"
+  }
+}
