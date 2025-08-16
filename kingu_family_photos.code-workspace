@@ -1,0 +1,18 @@
+{
+  "folders": [
+    {
+      "path": ".",
+    },
+    {
+      "path": "firebase/functions",
+    }
+  ],
+  "settings": {
+    "cSpell.words": [
+      "appcheck",
+      "cupertino",
+      "Firestore",
+      "riverpod"
+    ]
+  }
+}
