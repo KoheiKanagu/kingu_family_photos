@@ -5,7 +5,10 @@
       "name": "app",
       "request": "launch",
       "program": "lib/main_dev.dart",
-      "type": "dart"
+      "type": "dart",
+      "args": [
+        "--wasm"
+      ],
     },
   ]
 }

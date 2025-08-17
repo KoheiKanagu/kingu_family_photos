@@ -41,6 +41,12 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	/// ja: '再試行'
 	String get retry => '再試行';
 
-	/// ja: 'Family Photos'
-	String get familyPhotos => 'Family Photos';
+	/// ja: '金具家の写真'
+	String get familyPhotos => '金具家の写真';
+
+	/// ja: '子供の名前（漢字）'
+	String get childNameKanji => '子供の名前（漢字）';
+
+	/// ja: '写真を見る'
+	String get seePhotos => '写真を見る';
 }

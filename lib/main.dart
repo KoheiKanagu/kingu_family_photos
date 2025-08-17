@@ -11,6 +11,7 @@ import 'package:kingu_family_photos/constants/app_env.dart';
 import 'package:kingu_family_photos/constants/firebase_options.dart';
 import 'package:kingu_family_photos/gen/strings.g.dart';
 import 'package:kingu_family_photos/routing/application/my_go_router.dart';
+import 'package:kingu_family_photos/theme.dart';
 import 'package:kingu_family_photos/utils/my_logger.dart';
 
 Future<void> main() async {
@@ -50,22 +51,27 @@ class MyApp extends HookConsumerWidget {
 
     final width = MediaQuery.sizeOf(context).width;
 
-    return FractionallySizedBox(
-      widthFactor: width < 600 ? 1.0 : 600 / width,
-      child: MaterialApp.router(
-        supportedLocales: AppLocaleUtils.supportedLocales,
-        theme: ThemeData(
-          brightness: Brightness.light,
-          useMaterial3: true,
-          primaryColor: const Color(0xFF00A5BF),
-          textTheme: GoogleFonts.notoSansJpTextTheme(),
+    final textTheme = GoogleFonts.notoSansJpTextTheme();
+    final theme = MaterialTheme(textTheme);
+
+    return ColoredBox(
+      color: switch (MediaQuery.platformBrightnessOf(context)) {
+        Brightness.light => theme.light().scaffoldBackgroundColor,
+        Brightness.dark => theme.dark().scaffoldBackgroundColor,
+      },
+      child: FractionallySizedBox(
+        widthFactor: width < 600 ? 1.0 : 600 / width,
+        child: MaterialApp.router(
+          supportedLocales: AppLocaleUtils.supportedLocales,
+          theme: theme.light(),
+          darkTheme: theme.dark(),
+          localizationsDelegates: const [
+            GlobalCupertinoLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+          ],
+          routerConfig: router,
         ),
-        localizationsDelegates: const [
-          GlobalCupertinoLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-        ],
-        routerConfig: router,
       ),
     );
   }
