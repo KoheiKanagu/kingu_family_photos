@@ -88,7 +88,7 @@ mixin _$HomePageRoute on GoRouteData {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$myGoRouterHash() => r'1864f3a09ef53b7372debdc440e44a17259e9ac4';
+String _$myGoRouterHash() => r'acaf8512f58175700c6fddc7fdf53354aa8a5c82';
 
 /// See also [myGoRouter].
 @ProviderFor(myGoRouter)

@@ -12,6 +12,7 @@
       "appcheck",
       "cupertino",
       "Firestore",
+      "noto",
       "riverpod"
     ]
   }

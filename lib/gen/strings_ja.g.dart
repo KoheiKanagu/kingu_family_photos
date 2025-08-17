@@ -40,4 +40,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 
 	/// ja: '再試行'
 	String get retry => '再試行';
+
+	/// ja: 'Family Photos'
+	String get familyPhotos => 'Family Photos';
 }

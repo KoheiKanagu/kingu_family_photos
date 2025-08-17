@@ -6,7 +6,7 @@ part of 'app_startup.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$appStartupHash() => r'28bd0e8167c11a3889c11354b6adb284e6f5f5aa';
+String _$appStartupHash() => r'35376480cad126bf45bc71f6db6af5fb8cd8c4a8';
 
 /// アプリ起動時に非同期で初期化が必要な処理を行う
 ///

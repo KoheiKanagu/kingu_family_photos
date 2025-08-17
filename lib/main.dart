@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:kingu_family_photos/constants/app_env.dart';
@@ -47,19 +48,25 @@ class MyApp extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(myGoRouterProvider);
 
-    return MaterialApp.router(
-      supportedLocales: AppLocaleUtils.supportedLocales,
-      theme: ThemeData(
-        brightness: Brightness.light,
-        useMaterial3: true,
-        primaryColor: const Color(0xFF00A5BF),
+    final width = MediaQuery.sizeOf(context).width;
+
+    return FractionallySizedBox(
+      widthFactor: width < 600 ? 1.0 : 600 / width,
+      child: MaterialApp.router(
+        supportedLocales: AppLocaleUtils.supportedLocales,
+        theme: ThemeData(
+          brightness: Brightness.light,
+          useMaterial3: true,
+          primaryColor: const Color(0xFF00A5BF),
+          textTheme: GoogleFonts.notoSansJpTextTheme(),
+        ),
+        localizationsDelegates: const [
+          GlobalCupertinoLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        routerConfig: router,
       ),
-      localizationsDelegates: const [
-        GlobalCupertinoLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      routerConfig: router,
     );
   }
 }
